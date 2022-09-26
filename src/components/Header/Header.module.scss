@@ -1,0 +1,148 @@
+@import '../../assets/scss/vars';
+
+.header {
+    padding: 2rem 0;
+    background-color: $green;
+
+    @media ($tablet) {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media ($tablet) {
+            &.active {
+                border-bottom: 1px solid $black;
+                padding-bottom: 2rem;
+            }
+        }
+    }
+
+    &__image {
+        display: block;
+        width: 80%;
+        transition: transform .2s linear;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+
+        @media ($tablet) {
+            display: none;
+            padding-top: 5rem;
+            position: absolute;
+            left: 50%;
+            top: 15rem;
+            transform: translateX(-50%);
+            flex-direction: column;
+            align-items: center;
+            background-color: $green;
+            width: 100vw;
+            height: 100vh;
+
+            &.active {
+                display: flex;
+            }
+        }
+    }
+
+    &__links {
+        display: flex;
+
+        @media ($tablet) {
+            flex-direction: column;
+            align-items: center;
+            margin-top: 3rem;
+        }
+    }
+
+    &__link {
+        display: block;
+        color: $black;
+        font-size: 2rem;
+        margin-right: 2rem;
+        text-decoration: none;
+        transition: color .2s linear;
+
+        &:last-child {
+            margin-right: 6rem;
+        }
+
+        @media ($tablet) {
+            margin-right: 0;
+            margin-bottom: 3rem;
+            font-size: 3rem;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        &:hover {
+            color: darken($black, 30%);
+        }
+
+        &.active {
+            color: $activeLink;
+        }
+    }
+
+    &__icons {
+        flex-direction: row;
+    }
+
+    &__icon {
+        margin-left: 2rem;
+        font-size: 3rem;
+        color: $black;
+
+        @media ($tablet) {
+            margin-left: 4rem;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+
+    &__svg {
+        transition: transform .2s linear;
+
+        @media ($tablet) {
+            font-size: 5rem;
+        }
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+
+.burger {
+    display: none;
+    margin-right: 1rem;
+    font-size: 5rem;
+    color: $black;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+
+    @media ($tablet) {
+        display: block;
+    }
+}
