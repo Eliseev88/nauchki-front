@@ -3,14 +3,16 @@
 .header {
     padding: 2rem 0;
     background-color: $green;
+    border-radius: 0px 0px 20px 20px;
 
-    @media ($tablet) {
+    @media screen and ($tablet) {
         width: 100%;
         position: fixed;
         top: 0;
         left: 0;
         z-index: 1000;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 0;
     }
 
     &__wrapper {
@@ -18,7 +20,7 @@
         justify-content: space-between;
         align-items: center;
 
-        @media ($tablet) {
+        @media screen and ($tablet) {
             &.active {
                 border-bottom: 1px solid $black;
                 padding-bottom: 2rem;
@@ -41,7 +43,7 @@
         align-items: center;
         flex-direction: row-reverse;
 
-        @media ($tablet) {
+        @media screen and ($tablet) {
             display: none;
             padding-top: 5rem;
             position: absolute;
@@ -63,7 +65,7 @@
     &__links {
         display: flex;
 
-        @media ($tablet) {
+        @media screen and ($tablet) {
             flex-direction: column;
             align-items: center;
             margin-top: 3rem;
@@ -79,10 +81,10 @@
         transition: color .2s linear;
 
         &:last-child {
-            margin-right: 6rem;
+            margin-right: 10rem;
         }
 
-        @media ($tablet) {
+        @media screen and ($tablet) {
             margin-right: 0;
             margin-bottom: 3rem;
             font-size: 3rem;
@@ -106,11 +108,11 @@
     }
 
     &__icon {
-        margin-left: 2rem;
-        font-size: 3rem;
+        margin-left: 3rem;
+        font-size: 4rem;
         color: $black;
 
-        @media ($tablet) {
+        @media screen and ($tablet) {
             margin-left: 4rem;
 
             &:first-child {
@@ -122,7 +124,7 @@
     &__svg {
         transition: transform .2s linear;
 
-        @media ($tablet) {
+        @media screen and ($tablet) {
             font-size: 5rem;
         }
 
@@ -142,7 +144,7 @@
     cursor: pointer;
     padding: 0;
 
-    @media ($tablet) {
+    @media screen and ($tablet) {
         display: block;
     }
 }
