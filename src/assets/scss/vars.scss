@@ -3,8 +3,11 @@ $green: #0EAC99;
 $activeLink: #fff;
 $black: #3B3B3B;
 
+/* Background */
+$gradient: linear-gradient(103.39deg, #74FDAF 28.27%, #05C7BE 94.84%);
+
 /* Media queries */
-$mobile-sm: "max-width: 565px";
+$mobile-sm: "max-width: 550px";
 $mobile: "max-width: 767px";
-$tablet: "max-width: 1063px";
+$tablet: "max-width: 1082px";
 $laptop: "max-width: 1199px";

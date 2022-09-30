@@ -1,0 +1,269 @@
+@import '../../../assets/scss/vars';
+
+.intro {
+    margin-top: 11rem;
+    overflow-x: hidden;
+
+    @media ($tablet) {
+        padding-top: 10rem;
+        background: url('./images/Ellipse33.png') no-repeat;
+        background-position-x: initial;
+        background-size: cover;
+    }
+
+    @media ($mobile-sm) {
+        padding-top: 12rem;
+    }
+
+    &__wrapper {
+        display: flex;
+    }
+
+    &__column {
+        position: relative;
+        width: 50%;
+
+        &__one {
+            @media ($tablet) {
+                width: 100%;
+            }
+        }
+
+        &__two {
+            @media ($tablet) {
+                display: none;
+            }
+        }
+    }
+
+    &__question {
+        position: absolute;
+        color: transparent;
+        -webkit-text-stroke: 5px #F4E3C9;
+        font-weight: 700;
+        z-index: -1;
+
+        @media ($mobile) {
+            display: none;
+        }
+
+        &__first {
+            transform: rotate(11.58deg);
+            font-size: 30rem;
+            left: 19rem;
+            top: -3rem;
+        }
+
+        &__second {
+            transform: rotate(11.58deg);
+            font-size: 25rem;
+            right: -3.4rem;
+            bottom: 8.3rem;
+        }
+
+        &__third {
+            transform: rotate(-15deg);
+            font-size: 25rem;
+            right: -8rem;
+            bottom: 10rem;
+
+            @media ($tablet) {
+                z-index: 0;
+                right: 0rem;
+                bottom: 2rem;
+            }
+        }
+    }
+
+    &__box {
+        display: flex;
+    }
+
+    &__hidden_content {
+        visibility: visible;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__information {
+        padding: 4rem 5rem;
+        background-color: #FCE699;
+        border-radius: 20px 20px 20px 0px;
+        max-width: 50rem;
+        font-weight: 300;
+        font-size: 3rem;
+        color: $black;
+        position: relative;
+        top: 1rem;
+        left: 50%;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+
+        &::before {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 10rem solid transparent;
+            border-bottom: 4rem solid #FCE699;
+            position: absolute;
+            bottom: 0;
+            left: -7rem;
+
+            @media ($tablet) {
+                bottom: -2.5rem;
+                left: -3rem;
+                transform: rotate(-90deg) scaleY(-1);
+            }
+
+            @media ($mobile) {
+                bottom: -3.5rem;
+                left: -0.5rem;
+                border-left: 5rem solid transparent;
+            }
+        }
+
+        @media ($tablet) {
+            max-width: 40rem;
+            font-weight: 400;
+            font-size: 2.5rem;
+            top: -4rem;
+            left: 42%;
+        }
+
+
+        @media ($mobile) {
+            max-width: 30rem;
+            font-size: 2rem;
+            left: 40%;
+            padding: 2rem 2rem;
+        }
+
+        @media ($mobile-sm) {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &__image {
+        display: block;
+        position: absolute;
+        left: -3rem;
+
+        @media ($tablet) {
+            position: static;
+        }
+
+        @media ($mobile) {
+            width: 100%;
+        }
+
+        @media ($mobile-sm) {
+            margin-left: -11rem;
+            width: auto;
+        }
+    }
+
+    &__block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__element {
+        padding: 1.8rem 2.5rem;
+        background-color: #E9E9E9;
+        border-radius: 20px 20px 20px 0px;
+        max-width: 29.3rem;
+        font-weight: 400;
+        font-size: 1.4rem;
+        line-height: 1.7rem;
+        color: #5E5E5E;
+        position: relative;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+
+        &::before {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 6rem solid transparent;
+            border-bottom: 2rem solid #E9E9E9;
+            position: absolute;
+            bottom: 0;
+        }
+
+        &__one,
+        &__two,
+        &__four {
+            margin-bottom: 8rem;
+            align-self: flex-end;
+
+            &::before {
+                border-left: none;
+                border-right: 4rem solid transparent;
+                border-bottom: 2rem solid #E9E9E9;
+                position: absolute;
+                bottom: 0;
+                right: -2rem;
+            }
+        }
+
+        &__three,
+        &__five {
+            align-self: flex-start;
+            margin-bottom: 6rem;
+
+            &::before {
+                left: -4rem;
+            }
+        }
+
+        &__one {
+            margin-right: 4rem;
+        }
+
+        &__two {
+            margin-bottom: 10rem;
+        }
+
+        &__three {
+            align-self: center;
+            margin-bottom: 7.1rem;
+        }
+
+        &__four {
+            margin-right: 5rem;
+        }
+
+        &__five {
+            margin-left: 5rem;
+        }
+    }
+}
+
+@media ($tablet) {
+    .question_fix {
+        visibility: visible;
+        z-index: 0;
+        left: 48rem;
+        top: 18rem;
+    }
+
+    .fix_three,
+    .fix_four,
+    .fix_five {
+        visibility: visible;
+        z-index: 1;
+        align-self: flex-start;
+        max-width: none;
+        padding: 1.8rem 1.5rem;
+        margin-left: 0;
+        margin-right: 0;
+
+        @media screen and (max-width: 840px) {
+            display: none;
+        }
+    }
+
+    .fix_four {
+        margin-left: -5rem;
+    }
+}
