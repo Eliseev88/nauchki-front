@@ -1,17 +1,23 @@
-import React, { useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from 'react'
+import { NavLink, useParams } from 'react-router-dom';
 import cl from './Header.module.scss';
 import logo from '../../assets/images/header/logo_nauchki.c531fbdd.svg';
 import { FaRegUserCircle as Login } from 'react-icons/fa';
 import { AiOutlineHome as Home } from 'react-icons/ai';
 import { GiHamburgerMenu as Burger } from 'react-icons/gi';
+import { useEventListener } from '../../hooks/useEventListener';
+import { checkLogoTransform } from '../../utils/checkLogoTransform';
 
 export default function Header() {
 
     const [isActiveBurgerMenu, setIsActiveBurgerMenu] = useState(false);
+    const [pathname, setPathName] = useState(window.location.pathname);
+
+    const header = useRef(null);
+    const logoLink = useRef(null);
 
     const checkActiveLink = ({ isActive }) => {
-        return isActive ? `${cl.header__link} ${cl.active}` : cl.header__link
+        return isActive ? `${cl.header__link} ${cl.active}` : cl.header__link;
     }
 
     const handleClick = () => {
@@ -22,15 +28,30 @@ export default function Header() {
     const handleNavLinkClick = () => {
         setIsActiveBurgerMenu(false);
         document.body.classList.remove('no-scroll');
+        setPathName(window.location.pathname);
     }
 
+    useEffect(() => {
+        checkLogoTransform(logoLink, header);
+    }, [pathname])
+
+    useEffect(() => {
+        checkLogoTransform(logoLink, header, isActiveBurgerMenu);
+    }, [isActiveBurgerMenu])
+
+    useEventListener('scroll', () => {
+       checkLogoTransform(logoLink, header);
+    });
+
+    useEventListener('resize', () => {
+        checkLogoTransform(logoLink, header, false, setIsActiveBurgerMenu)
+    })
+
     return (
-        <header className={cl.header}>
+        <header ref={header} className={cl.header}>
             <div className='container'>
                 <div className={(isActiveBurgerMenu ? `${cl.header__wrapper} ${cl.active}` : cl.header__wrapper)}>
-                    <div className={cl.header__logo}>
-                        <NavLink to='/'><img src={logo} alt="logo" className={cl.header__image} /></NavLink>
-                    </div>
+                    <NavLink ref={logoLink} to='/' className={cl.header__logo}><img src={logo} alt="logo" className={cl.header__image} /></NavLink>
                     <nav className={(isActiveBurgerMenu ? `${cl.header__nav} ${cl.active}` : cl.header__nav)}>
                         <div className={cl.header__icons}>
                             <NavLink to="/" className={cl.header__icon} onClick={handleNavLinkClick}><Home className={cl.header__svg} /></NavLink>

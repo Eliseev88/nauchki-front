@@ -11,8 +11,8 @@
         top: 0;
         left: 0;
         z-index: 1000;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
         border-radius: 0;
+        background-color: #6cf5b3;
     }
 
     &__wrapper {
@@ -26,6 +26,12 @@
                 padding-bottom: 2rem;
             }
         }
+    }
+
+    &__logo {
+        display: block;
+        transition: transform .2s linear;
+        z-index: 1;
     }
 
     &__image {
@@ -44,20 +50,30 @@
         flex-direction: row-reverse;
 
         @media screen and ($tablet) {
-            display: none;
-            padding-top: 5rem;
+            //display: none;
             position: absolute;
             left: 50%;
             top: 15rem;
             transform: translateX(-50%);
             flex-direction: column;
             align-items: center;
-            background-color: $green;
+            background-color: #6cf5b3;
             width: 100vw;
-            height: 100vh;
+            height: 0;
+            transition: height .4s linear;
+
+            & * {
+                visibility: hidden;
+            }
 
             &.active {
-                display: flex;
+                padding-top: 5rem;
+                height: 100vh;
+
+                & * {
+                    transition: color .2s linear, visibility .2s linear .4s;
+                    visibility: visible;
+                }
             }
         }
     }
