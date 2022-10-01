@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 
-export const useEventListener = (event, callback) => {
+export const useEventListener = (event, ref, callback) => {
     useEffect(() => {
-        window.addEventListener(event, callback);
+      ref.addEventListener(event, callback);
     
         return () => {
-          window.removeEventListener(event, callback);
+          ref.removeEventListener(event, callback);
         };
       }, []);
 }

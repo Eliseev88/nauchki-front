@@ -1,5 +1,6 @@
 html {
     font-size: 62.5%;
+    height: 100%;
 }
 
 body {
@@ -7,6 +8,7 @@ body {
     padding: 0;
     font-family: 'Inter', sans-serif;
     font-size: 1.6rem;
+    height: 100%;
 
     &.no-scroll {
         overflow: hidden;     
@@ -27,6 +29,16 @@ p {
 *:before,
 *:after {
     box-sizing: border-box;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.content {
+    flex: 1 0 auto;
 }
 
 .container {

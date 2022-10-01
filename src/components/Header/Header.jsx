@@ -39,11 +39,11 @@ export default function Header() {
         checkLogoTransform(logoLink, header, isActiveBurgerMenu);
     }, [isActiveBurgerMenu])
 
-    useEventListener('scroll', () => {
+    useEventListener('scroll', window, () => {
        checkLogoTransform(logoLink, header);
     });
 
-    useEventListener('resize', () => {
+    useEventListener('resize', window, () => {
         checkLogoTransform(logoLink, header, false, setIsActiveBurgerMenu)
     })
 
