@@ -15,7 +15,7 @@ export default function Intro() {
                             до 2 лет
                         </div>
                         <div className={cl.intro__box}>
-                            <img src={image} alt="image" className={cl.intro__image} />
+                            <img src={image} alt="family" className={cl.intro__image} />
                             <div className={cl.intro__hidden_content}>
                                 <div className={`hidden ${cl.intro__element} ${cl.intro__element__three} ${cl.fix_three}`}>Своевременно ли развивается моя дочь?</div>
                                 <div className={`hidden ${cl.intro__element} ${cl.intro__element__four} ${cl.fix_four}`}>Что должен уметь ребенок в 4 месяца?</div>

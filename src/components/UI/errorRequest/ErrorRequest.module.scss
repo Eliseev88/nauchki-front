@@ -1,0 +1,10 @@
+.error__request {
+    font-weight: 500;
+    color: #d11818;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+
+    &-message {
+        word-wrap: break-word;
+    }
+}

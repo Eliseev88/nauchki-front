@@ -39,3 +39,21 @@ export const tarifsArr = [
   }
 
 ]
+
+export const friends = [
+
+  {
+    id: 1,
+    userName: 'Надежда',
+    image: 'https://via.placeholder.com/150x150/FFF',
+  },
+
+  {
+    id: 2,
+    userName: 'Андрей',
+    image: 'https://via.placeholder.com/150x150/FFF',
+  }
+
+]
+
+export const apiUrl = 'http://89.108.88.2:8080';
