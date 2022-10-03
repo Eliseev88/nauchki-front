@@ -1,0 +1,9 @@
+.avatar {
+    display: block;
+    border-radius: 50%;
+    transition: transform .2s linear;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}

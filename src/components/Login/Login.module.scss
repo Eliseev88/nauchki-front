@@ -1,0 +1,101 @@
+@import '../../assets/scss/vars.scss';
+
+.login {
+    margin: 12.5rem auto 8rem;
+    
+    @media ($tablet) {
+        margin-top: 22.5rem;
+    }
+
+    &__wrapper,
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__wrapper {
+        background: $gradient180;
+        padding: 2rem 3.7rem;
+        border-radius: 20px;
+    }
+
+    &__title {
+        font-size: 2.8rem;
+        margin-bottom: 3rem;
+        color: $black;
+    }
+
+    &__form input {
+        margin-bottom: 2.4rem;
+        max-width: 36.6rem;
+    }
+
+    &__link {
+        margin-top: 3rem;
+        color: #0F5C53;
+        text-align: center;
+        font-size: 2rem;
+        transition: color .2s linear;
+
+        &:hover {
+            color: darken(#0F5C53, 30%);
+        }
+        
+        &:nth-last-of-type(1){
+            margin-top: 1rem;
+        }
+    }
+}
+
+.social__title {
+    margin: 5rem 0 3rem;
+    font-size: 2.4rem;
+    text-align: center;
+}
+
+.social__icons {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    @media ($mobile) {
+        width: 80%;
+    }
+}
+
+.social__link {
+    display: block;
+    text-decoration: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: red;
+    text-align: center;
+    transition: transform .2s linear;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.google {
+    background-color: #C5331E;
+    line-height: 4.2;
+}
+
+.facebook {
+    background-color: #4E6297;
+    line-height: 4;
+}
+
+.vk {
+    background-color: #7294C7;
+    line-height: 3.5;
+}
+
+.yandex {
+    background-color: #ED1E24;
+    line-height: 4.6;
+}

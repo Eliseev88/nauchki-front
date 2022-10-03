@@ -1,12 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Routes, Route, } from 'react-router-dom';
+import Login from '../pages/Login';
 import Main from '../pages/Main';
 import Profile from '../pages/Profile';
+import { selectIsAuth } from '../store/user/selectors';
 import { PrivateRoute } from './PrivateRoute';
 
 export default function AppRouter() {
 
-    const authed = true;
+    const authed = useSelector(selectIsAuth);
 
     return (
         <Routes>
@@ -14,7 +17,7 @@ export default function AppRouter() {
             <Route path='/profile' element={<PrivateRoute authed={authed} />} >
                 <Route path='' element={<Profile />} />
             </Route>
-            <Route path='/login' element={<div className='content'>Login</div>} />
+            <Route path='/login' element={<Login />} />
         </Routes>
     )
 }

@@ -2,7 +2,7 @@ export const checkLogoTransform = (logo, header, isActiveBurgerMenu = false, set
     const tabletScreenSize = 1062;
 
     if (isActiveBurgerMenu) {
-        if (!isActiveBurgerMenu && (window.location.pathname === '/') && (document.documentElement.clientWidth <= tabletScreenSize) && (window.pageYOffset == 0)) {
+        if (!isActiveBurgerMenu && (window.location.pathname === '/') && (document.documentElement.clientWidth <= tabletScreenSize) && (window.pageYOffset === 0)) {
             logo.current.classList.add('transform');
         } else {
             logo.current.classList.remove('transform');
