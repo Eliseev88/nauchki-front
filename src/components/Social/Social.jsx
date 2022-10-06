@@ -10,16 +10,16 @@ export default function Social() {
         <>
             <div className={cl.social__title}>Войти через другие социальные сети</div>
             <div className={cl.social__icons}>
-                <a href="https://google.com" target='_blank' className={`${cl.social__link} ${cl.google}`}>
+                <a href="https://google.com" target='_blank' rel="noreferrer" className={`${cl.social__link} ${cl.google}`}>
                     <img src={google} alt="google icon" className={cl.social__image} />
                 </a>
-                <a href="https://vk.ru" target='_blank' className={`${cl.social__link} ${cl.vk}`}>
+                <a href="https://vk.ru" target='_blank' rel="noreferrer" className={`${cl.social__link} ${cl.vk}`}>
                     <img src={vk} alt="vkontakte icon" className={cl.social__image} />
                 </a>
-                <a href="https://facebook.ru" target='_blank' className={`${cl.social__link} ${cl.facebook}`}>
+                <a href="https://facebook.ru" target='_blank' rel="noreferrer" className={`${cl.social__link} ${cl.facebook}`}>
                     <img src={facebook} alt="facebook icon" className={cl.social__image} />
                 </a>
-                <a href="https://ya.ru" target='_blank' className={`${cl.social__link} ${cl.yandex}`}>
+                <a href="https://ya.ru" target='_blank' rel="noreferrer" className={`${cl.social__link} ${cl.yandex}`}>
                     <img src={yandex} alt="yandex icon" className={cl.social__image} />
                 </a>
             </div>
