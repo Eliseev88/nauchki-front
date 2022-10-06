@@ -3,16 +3,13 @@ import cl from './Login.module.scss';
 import Input from '../UI/input/Input';
 import Button from '../UI/button/Button';
 import { Link } from 'react-router-dom';
-import google from '../../assets/images/social_icons/Vector.svg';
-import vk from '../../assets/images/social_icons/Vector (1).svg';
-import facebook from '../../assets/images/social_icons/Vector (2).svg';
-import yandex from '../../assets/images/social_icons/Vector (3).svg';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { selectErrorAuth, selectIsAuth } from '../../store/user/selectors';
-import { asyncApiCall } from '../../store/user/actions';
+import { asyncApiCall, errorAuth as errorAuthAction } from '../../store/user/actions';
 import { ErrorRequest } from '../UI/errorRequest/ErrorRequest';
 import { LoaderSvg } from '../UI/loader/LoaderSvg';
+import Social from '../Social/Social';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -44,8 +41,8 @@ export default function Login() {
   }
 
   useEffect(() => {
-    auth && navigate(from, { replace: true })
-  }, [auth]);
+      auth && navigate(from, { replace: true });
+    }, [auth]);
 
   const inputEmail = useRef(null);
 
@@ -53,11 +50,15 @@ export default function Login() {
     inputEmail.current.focus();
   }, []);
 
+  useEffect(() => {
+    errorAuth && dispatch(errorAuthAction(false));
+  }, [location])
+
   return (
     <section className={cl.login}>
       <div className="container">
         <div className={cl.login__wrapper}>
-          <div className={cl.login__title}>Вход</div>
+          <h1 className={cl.login__title}>Вход</h1>
           {
             errorAuth?.response?.status === 401 &&
             <ErrorRequest>
@@ -71,21 +72,7 @@ export default function Login() {
           </form>
           <Link to='/registration' className={cl.login__link}>Еще не зарегистрированы?</Link>
           <Link to='/recoverypass' className={cl.login__link}>Забыли пароль?</Link>
-          <div className={cl.social__title}>Войти через другие социальные сети</div>
-          <div className={cl.social__icons}>
-            <a href="" className={`${cl.social__link} ${cl.google}`}>
-              <img src={google} alt="google icon" className={cl.social__image} />
-            </a>
-            <a href="" className={`${cl.social__link} ${cl.vk}`}>
-              <img src={vk} alt="vkontakte icon" className={cl.social__image} />
-            </a>
-            <a href="" className={`${cl.social__link} ${cl.facebook}`}>
-              <img src={facebook} alt="facebook icon" className={cl.social__image} />
-            </a>
-            <a href="" className={`${cl.social__link} ${cl.yandex}`}>
-              <img src={yandex} alt="yandex icon" className={cl.social__image} />
-            </a>
-          </div>
+          <Social />
         </div>
       </div>
     </section>

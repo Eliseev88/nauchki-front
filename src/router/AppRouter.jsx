@@ -4,6 +4,7 @@ import { Routes, Route, } from 'react-router-dom';
 import Login from '../pages/Login';
 import Main from '../pages/Main';
 import Profile from '../pages/Profile';
+import Registration from '../pages/Registration';
 import { selectIsAuth } from '../store/user/selectors';
 import { PrivateRoute } from './PrivateRoute';
 
@@ -18,6 +19,7 @@ export default function AppRouter() {
                 <Route path='' element={<Profile />} />
             </Route>
             <Route path='/login' element={<Login />} />
+            <Route path='/registration' element={<Registration />} />
         </Routes>
     )
 }

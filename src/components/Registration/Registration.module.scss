@@ -1,8 +1,8 @@
 @import '../../assets/scss/vars.scss';
 
-.login {
+.reg {
     margin: 12.5rem auto 8rem;
-    
+
     @media ($tablet) {
         margin-top: 22.5rem;
     }
@@ -42,9 +42,25 @@
         &:hover {
             color: darken(#0F5C53, 30%);
         }
-        
-        &:nth-last-of-type(1){
+
+        &:nth-last-of-type(1) {
             margin-top: 1rem;
         }
     }
+
+    &__checkbox {
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    & label {
+        margin-bottom: 2.4rem;
+        margin-left: 1rem;
+    }
+}
+
+.check1 {
+    width: 2rem;
+    height: 2rem;
 }
