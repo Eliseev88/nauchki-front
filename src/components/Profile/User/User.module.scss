@@ -26,6 +26,9 @@
 
     &__box {
         margin-bottom: 5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     &__info {

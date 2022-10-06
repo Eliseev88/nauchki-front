@@ -1,0 +1,53 @@
+@import '../../assets/scss/vars.scss';
+
+.social__title {
+    margin: 5rem 0 3rem;
+    font-size: 2.4rem;
+    text-align: center;
+}
+
+.social__icons {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    @media ($mobile) {
+        width: 80%;
+    }
+}
+
+.social__link {
+    display: block;
+    text-decoration: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: red;
+    text-align: center;
+    transition: transform .2s linear;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.google {
+    background-color: #C5331E;
+    line-height: 4.2;
+}
+
+.facebook {
+    background-color: #4E6297;
+    line-height: 4;
+}
+
+.vk {
+    background-color: #7294C7;
+    line-height: 3.5;
+}
+
+.yandex {
+    background-color: #ED1E24;
+    line-height: 4.6;
+}

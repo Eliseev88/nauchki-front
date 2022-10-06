@@ -42,6 +42,23 @@ export const asyncApiCall = (email, password) => async (dispatch) => {
         });
 };
 
+export const getUserDataThunk = () => async (dispatch) => {
+  try {
+    const response = await UserAPI.getAuthUser();
+    if (response?.request?.status === 200) {
+      dispatch(getUserData(response.data));
+      dispatch(toggleAuth(true));
+    }
+  } catch (error) {
+    console.log(error);
+    if (error.response.status === 410) {
+        localStorage.removeItem("TOKEN", "persist:root", "persist:auth");
+        dispatch(toggleAuth(false));
+        window.location.href = 'login';
+    }
+  }
+};
+
 export const logout = () => (dispatch) => {
     localStorage.removeItem("TOKEN", "persist:root", "persist:auth");
     dispatch(toggleAuth(false));
