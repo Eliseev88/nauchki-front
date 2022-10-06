@@ -1,4 +1,4 @@
-import { Api, instance } from "./API";
+import { instance } from "./API";
 
 export const UserAPI = {
   getAuthUser() {

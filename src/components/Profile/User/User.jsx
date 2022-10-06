@@ -21,7 +21,7 @@ export default function User() {
   
   useEffect(() => {
    dispatch(getUserDataThunk())
-  }, []);
+  }, [dispatch]);
 
   return (
     <section className={cl.user}>

@@ -42,7 +42,7 @@ export default function Login() {
 
   useEffect(() => {
       auth && navigate(from, { replace: true });
-    }, [auth]);
+    }, [auth, from, navigate]);
 
   const inputEmail = useRef(null);
 
@@ -52,7 +52,7 @@ export default function Login() {
 
   useEffect(() => {
     errorAuth && dispatch(errorAuthAction(false));
-  }, [location])
+  }, [location, dispatch, errorAuth])
 
   return (
     <section className={cl.login}>

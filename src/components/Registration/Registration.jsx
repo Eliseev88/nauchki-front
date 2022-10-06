@@ -18,6 +18,7 @@ export default function Registration() {
     password.current = watch("password", "");
 
     const onSubmit = data => {
+        setIsLoading(true)
     }
     
     return (

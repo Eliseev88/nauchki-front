@@ -13,7 +13,7 @@ export default function Registration() {
 
     useEffect(() => {
         auth && navigate(from, { replace: true })
-    }, [])
+    }, [auth, from, navigate]);
 
     return (
         <main className="content">

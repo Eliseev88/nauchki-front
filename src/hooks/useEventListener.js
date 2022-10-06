@@ -7,5 +7,5 @@ export const useEventListener = (event, ref, callback) => {
         return () => {
           ref.removeEventListener(event, callback);
         };
-      }, []);
+      }, [event, ref, callback]);
 }
