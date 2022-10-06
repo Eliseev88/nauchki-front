@@ -1,0 +1,31 @@
+@import '../../../assets/scss/vars.scss';
+
+.child {
+    padding: 3rem;
+    border: 3px solid #00AF70;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: box-shadow .2s linear;
+
+    &:hover {
+        box-shadow: 0 0 30px black;
+    }
+
+    & img:hover {
+        transform: none;
+    }
+
+    &__avatar {
+        margin-right: 2rem;
+    }
+
+    &__name,
+    &__birth,
+    &__age {
+        color: $black;
+        font-size: 2rem;
+        font-weight: 500;
+    }
+}

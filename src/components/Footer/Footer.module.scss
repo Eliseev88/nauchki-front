@@ -1,0 +1,27 @@
+@import '../../assets/scss/vars';
+
+.footer {
+    background-color: #6ffaaf;
+    padding-top: 2rem;
+    flex: 0 0 auto;
+
+    &__wrapper {
+        padding: 3rem 0 5rem;
+        border-top: 1px solid $black;
+    }
+
+    &__text {
+        font-size: 2rem;
+        color: $black;
+    }
+
+    &__link {
+        color: $black;
+        transition: color .2 linear;
+        font-size: 2rem;
+
+        &:hover {
+            color: darken(#000, 30%);
+        }
+    }
+}

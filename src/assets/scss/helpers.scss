@@ -1,0 +1,26 @@
+@import 'vars.scss';
+
+.shadow {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.transform {
+    transform: translate(15rem, 18rem) scale(2) rotate(-18deg);
+
+    @media ($mobile) {
+        transform: translate(5rem, 18rem) scale(1.5) rotate(-18deg);
+    }
+
+    @media ($mobile-sm) {
+        transform: translate(calc(50vw - 69px), 6rem) scale(1.5);
+    }
+
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.error {
+    color:#e21e24;
+}

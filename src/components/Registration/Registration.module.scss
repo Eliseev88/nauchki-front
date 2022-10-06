@@ -1,0 +1,66 @@
+@import '../../assets/scss/vars.scss';
+
+.reg {
+    margin: 12.5rem auto 8rem;
+
+    @media ($tablet) {
+        margin-top: 22.5rem;
+    }
+
+    &__wrapper,
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__wrapper {
+        background: $gradient180;
+        padding: 2rem 3.7rem;
+        border-radius: 20px;
+    }
+
+    &__title {
+        font-size: 2.8rem;
+        margin-bottom: 3rem;
+        color: $black;
+        font-weight: 400;
+    }
+
+    &__form input {
+        margin-bottom: 2.4rem;
+        max-width: 36.6rem;
+    }
+
+    &__link {
+        margin-top: 3rem;
+        color: #0F5C53;
+        text-align: center;
+        font-size: 2rem;
+        transition: color .2s linear;
+
+        &:hover {
+            color: darken(#0F5C53, 30%);
+        }
+
+        &:nth-last-of-type(1) {
+            margin-top: 1rem;
+        }
+    }
+
+    &__checkbox {
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    & label {
+        margin-bottom: 2.4rem;
+        margin-left: 1rem;
+    }
+}
+
+.check1 {
+    width: 2rem;
+    height: 2rem;
+}
