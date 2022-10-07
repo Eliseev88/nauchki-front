@@ -3,7 +3,7 @@ import { instance } from "./API";
 export const UserAPI = {
   getAuthUser() {
     return instance.get(
-      `/getuser`,
+      `/user`,
       {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("TOKEN"),

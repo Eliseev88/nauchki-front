@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const instance = axios.create({
   withCredentials: true,
-  baseURL: "http://89.108.88.2:8080",
+  baseURL: "http://89.108.88.2:8080/v2/",
 });
 
 export class Api {
