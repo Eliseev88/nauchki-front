@@ -6,11 +6,16 @@ import { Link } from 'react-router-dom';
 import Social from '../Social/Social';
 import { LoaderSvg } from '../UI/loader/LoaderSvg';
 import { useForm } from "react-hook-form";
+import { RegistrationAPI } from '../../API/authApi';
 
 export default function Registration() {
     const [isLoading, setIsLoading] = useState(false);
     const [checkbox, setCheckbox] = useState(true);
+    const [isEmailBusy, setIsEmailBusy] = useState(false);
+
     const password = useRef({});
+    const title = useRef();
+    const form = useRef();
 
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm({});
@@ -18,17 +23,34 @@ export default function Registration() {
     password.current = watch("password", "");
 
     const onSubmit = data => {
-        setIsLoading(true)
+        setIsLoading(true);
+        RegistrationAPI.registartion(
+            data.email,
+            data.password,
+            data.username
+        )
+            .then((res) => {
+                if (res.data && res.status === 200) {
+                    title.current.innerHTML = 'Для завершения регистрации проверьте указанную вами почту'
+                    form.current.style.display = 'none';
+                } else if (!res.data && res.status === 200) {
+                    setIsEmailBusy(true)
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        setIsLoading(false);
     }
     
     return (
         <section className={cl.reg}>
             <div className="container">
                 <div className={cl.reg__wrapper}>
-                    <h1 className={cl.reg__title}>Регистрация</h1>
-                    <form className={cl.reg__form} onSubmit={handleSubmit(onSubmit)}>
+                    <h1 ref={title} className={cl.reg__title}>Регистрация</h1>
+                    <form ref={form} className={cl.reg__form} onSubmit={handleSubmit(onSubmit)}>
 
-                        {errors.username && <span className='error'>Укажите имя пользователя</span>}
+                        {errors.username && <span className='error'>Укажите имя пользователя</span>} 
                         <Input
                             name='username'
                             type='text'
@@ -38,11 +60,13 @@ export default function Registration() {
                         />
 
                         {errors.email && <span className='error'>Укажите почту</span>}
+                        {isEmailBusy && <span className='error'>Данный почтовый адрес уже зарегистрирован</span>}
                         <Input
                             name='email'
                             type='email'
                             placeholder='Ваша почта'
                             {...register("email", { required: true })}
+                            onFocus={() => setIsEmailBusy(false)}
                         />
 
                         {errors.password && <span className='error'>{errors.password.message}</span>}
