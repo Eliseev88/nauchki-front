@@ -8,6 +8,12 @@
     align-items: center;
     text-decoration: none;
     transition: box-shadow .2s linear;
+    position: relative;
+
+    @media ($mobile) {
+        display: flex;
+        flex-direction: column;
+    }
 
     &:hover {
         box-shadow: 0 0 30px black;
@@ -27,5 +33,25 @@
         color: $black;
         font-size: 2rem;
         font-weight: 500;
+    }
+
+    &__btn {
+        position: absolute;
+        top: 1.5rem;
+        right: 2rem;
+        padding: 0;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        transition: transform .2s linear;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    &__delete {
+        color: darkred;
+        font-size: 4rem;
     }
 }

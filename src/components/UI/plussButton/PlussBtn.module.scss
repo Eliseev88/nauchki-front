@@ -1,0 +1,28 @@
+.circleCross{
+    height: 4rem;
+    width: 4rem;
+    background-color: #0EAC99;
+    position: relative;
+    border-radius: 100%;
+    border: none;
+    cursor: pointer;
+    transition: transform .2s linear;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.circleCross:after {
+    position: absolute;
+    top: -.6rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "\2716"; 
+    font-size: 3rem; 
+    color: #ffffff;
+    line-height: 5rem;
+    text-align: center;
+    font-weight: 900;
+}

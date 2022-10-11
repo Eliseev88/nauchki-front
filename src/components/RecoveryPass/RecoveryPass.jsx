@@ -4,7 +4,7 @@ import Button from '../UI/button/Button';
 import cl from './RecoveryPass.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectRecoveryPassData } from '../../store/recoveryPass/selectors';
-import { getRecoveryPassThunk, setRecoveryPassError } from '../../store/recoveryPass/actions';
+import { getRecoveryPassThunk, setRecoveryPassData, setRecoveryPassError } from '../../store/recoveryPass/actions';
 import { ErrorRequest } from '../UI/errorRequest/ErrorRequest';
 import { useNavigate } from 'react-router-dom';
 
@@ -26,8 +26,11 @@ export default function RecoveryPass() {
     }
 
     useEffect(() => {
-        data?.request?.status === 200 && navigate('/resetpass', {replace: true});
-    }, [data, navigate])
+        if (data?.request?.status === 200) {
+            dispatch(setRecoveryPassData(null));
+            navigate('/resetpass', {replace: true});
+        }
+    }, [data, navigate, dispatch]);
 
     return (
         <section className={cl.recovery}>

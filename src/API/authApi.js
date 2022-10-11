@@ -3,7 +3,7 @@ import { Api } from "./API";
 export const LoginAPI = {
   auth(email, password) {
     return Api.post(
-      `/auth`,
+      `/v2/auth`,
       {
         email: email,
         password: password,
@@ -15,7 +15,7 @@ export const LoginAPI = {
 
 export const RegistrationAPI = {
   registartion(email, password, username) {
-    return Api.post(`/registration`, {
+    return Api.post(`/v2/registration`, {
       email,
       username,
       password,
@@ -25,7 +25,7 @@ export const RegistrationAPI = {
 
 export const RecoveryPassAPI = {
     recoveryPass(email) {
-      return Api.post("/editpassword", {
+      return Api.post("/v2/editpassword", {
         email,
       });
     },
@@ -33,7 +33,7 @@ export const RecoveryPassAPI = {
   
   export const ResetPassAPI = {
     resetPass(resetPasswordCode, password) {
-      return Api.post("/editpass", {
+      return Api.post("/v2/editpass", {
         resetPasswordCode,
         password,
       });

@@ -1,0 +1,173 @@
+@import '../../assets/scss/vars.scss';
+
+.myModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+    transform: scale(0);
+    z-index: 999;
+}
+
+.myModal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1);
+}
+
+.form {
+    max-width: 700px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    position: fixed;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgb(0, 0, 0);
+    transform: scale(0);
+    transition: transform .4s linear;
+    color: $black;
+
+    &.active {
+        transform: scale(1);
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    @media ($mobile) {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+.circle-crossbtn {
+    align-self: flex-end;
+}
+
+.title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    margin-right: 2rem;
+
+    @media ($mobile) {
+        margin-right: 0;
+        margin-top: 2rem;
+    }
+}
+
+.main {
+    padding: 40px;
+    margin-top: 20px;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.radio {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 148px;
+}
+
+input[type="radio"]:after {
+    width: 22px;
+    height: 22px;
+    border-radius: 15px;
+    top: -5px;
+    left: -1px;
+    position: relative;
+    background-color: #ffffff;
+    content: "";
+    display: inline-block;
+    visibility: visible;
+    border: 1px solid #b9b9b9;
+}
+
+input[type="radio"]:checked:after {
+    background-color: #000000;
+    border: 6px solid #b9b9b9;
+    width: 22px;
+    height: 22px;
+}
+
+.name {
+    width: 218px;
+    height: 36px;
+    border: 3px solid #0eac99;
+    border-radius: 40px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 10px;
+}
+
+.ptitle {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    background-color: #0eac99;
+    height: 60px;
+    width: 275px;
+    border-radius: 20px;
+    color: #ffffff;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 27px;
+    text-align: center;
+    border: none;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-top: 39px;
+    cursor: pointer;
+}
+
+.btn {
+    background-color: #0eac99;
+    height: 60px;
+    width: 275px;
+    border-radius: 20px;
+    color: #ffffff;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 27px;
+    text-align: center;
+    border: none;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-top: 39px;
+}
+
+.btn:hover {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn:active {
+    box-shadow: none;
+}

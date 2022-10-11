@@ -3,9 +3,10 @@ import cl from './ResetPassword.module.scss';
 import Button from '../UI/button/Button';
 import Input from '../UI/input/Input';
 import { useForm } from "react-hook-form";
-import { getResetPassThunk, setResetPassError } from '../../store/resetPass/actions';
+import { getResetPassThunk, setResetPassData, setResetPassError } from '../../store/resetPass/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectResetPassData } from '../../store/resetPass/selectors';
+import { Link } from 'react-router-dom';
 
 export default function ResetPassword() {
 
@@ -25,12 +26,11 @@ export default function ResetPassword() {
     }
 
     useEffect(() => {
-        if (data?.request?.data && data?.request?.status === 200) {
-            setShowFinishMessage(true)
-        } else if (!data?.request?.data && data?.request?.status === 200) {
-            console.log('ok')
-            dispatch(setResetPassError('Неверный проверочный код'));
+        if (data?.data && data?.status === 200) {
+            setShowFinishMessage(true);
+            dispatch(setResetPassData(null));
         }
+        if (!data?.data && data?.status === 200) dispatch(setResetPassError('Неверный проверочный код'));
     }, [data, dispatch])
 
     return (
@@ -40,6 +40,7 @@ export default function ResetPassword() {
                     <h1 className={cl.reset__title}>
                         {showFinishMessage ? 'Пароль успешно сменен' : 'Код для восстановления пароля отправлен на почту'}
                     </h1>
+                    {showFinishMessage && <Link to='/login' className={cl.reset__link}>Войти</Link>}
                     {!showFinishMessage &&
                         <form className={cl.reset__form} onSubmit={handleSubmit(onSubmit)}>
                             {error && <span className="error">{error}</span>}
@@ -49,6 +50,7 @@ export default function ResetPassword() {
                                 autoFocus
                                 required
                                 placeholder='Введите код с почты'
+                                onFocus={() => dispatch(setResetPassError(null))}
                                 {...register("resetPasswordCode",
                                     {
                                         required: true,
