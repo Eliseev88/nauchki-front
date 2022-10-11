@@ -45,13 +45,13 @@ export const friends = [
   {
     id: 1,
     userName: 'Надежда',
-    image: 'https://via.placeholder.com/150x150/FFF',
+    image: 'https://resizer.mail.ru/p/8a441587-1b76-5c99-b160-407726395286/AAACX5QTtMIRKLSkav5PYbyvvUyaUHMa38YFPDIpzldRBGrRfDDSbNypGa_wI45dZYqUJPGLzU12bo-G2RZbbev9bNU.jpg',
   },
 
   {
     id: 2,
     userName: 'Андрей',
-    image: 'https://via.placeholder.com/150x150/FFF',
+    image: 'http://bonjourazur.ru/upload/medialibrary/9cd/9cd91e286e818de63d0ee722b5b1280f.jpg',
   }
 
 ]

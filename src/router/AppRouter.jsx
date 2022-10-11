@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Routes, Route, } from 'react-router-dom';
+import Child from '../pages/Child';
 import Login from '../pages/Login';
 import Main from '../pages/Main';
 import Profile from '../pages/Profile';
@@ -24,6 +25,9 @@ export default function AppRouter() {
             <Route path='/registration' element={<Registration />} />
             <Route path='/recoverypass' element={<RecoveryPass />} />
             <Route path='/resetpass' element={<ResetPass />} />
+            <Route path='/children/:id' element={<PrivateRoute authed={authed} />} >
+                <Route path='' element={<Child />} />
+            </Route>
         </Routes>
     )
 }

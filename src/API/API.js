@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const instance = axios.create({
   withCredentials: true,
-  baseURL: "http://89.108.88.2:8080/v2/",
+  baseURL: "http://89.108.88.2:8080",
 });
 
 export class Api {
@@ -29,7 +29,7 @@ export class Api {
     return Api.request(url, data, "PUT", withToken);
   }
 
-  static delete(url,  withToken) {
+  static delete(url, withToken) {
     return Api.request(url, "DELETE", withToken);
   }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import cl from './User.module.scss';
 import Button from '../../UI/button/Button';
@@ -7,10 +7,15 @@ import { friends } from '../../../utils/constants';
 import { useSelector, useDispatch } from "react-redux";
 import { getUserDataThunk, logout } from '../../../store/user/actions';
 import { selectUserData } from '../../../store/user/selectors';
+import ImageForm from '../../../modals/imageForm/ImageForm';
+import UserNameForm from '../../../modals/userNameForm/UserNameForm';
 
 export default function User() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [isImageModalShow, setIsImageModalShow] = useState(false);
+  const [isUserNameModalShow, setIsUserNameModalShow] = useState(false);
 
   const user = useSelector(selectUserData);
 
@@ -18,9 +23,17 @@ export default function User() {
     dispatch(logout());
     navigate('/', { replace: true });
   }
-  
+
+  const showImageChangeModal = () => {
+    setIsImageModalShow(true);
+  }
+
+  const showUserNameChangeModal = () => {
+    setIsUserNameModalShow(true);
+  }
+
   useEffect(() => {
-   dispatch(getUserDataThunk())
+    dispatch(getUserDataThunk())
   }, [dispatch]);
 
   return (
@@ -33,14 +46,14 @@ export default function User() {
           </div>
           <div className={cl.user__box}>
             <div className={cl.user__info}>
-              <Link className={cl.marginRight} to='' target="_blank">
-                <Avatar imgPath='https://via.placeholder.com/200x200/FFF' />
-              </Link>
-              <Button>Изменить</Button>
+              <a className={cl.marginRight} href={user?.baseImagePath} target="_blank" rel="noreferrer">
+                <Avatar imgPath={user?.baseImagePath || 'https://via.placeholder.com/200x200/FFF'} />
+              </a>
+              <Button onClick={showImageChangeModal}>Изменить</Button>
             </div>
             <div className={cl.user__info}>
               <div className={cl.user__name}>{user?.username}</div>
-              <Button>Изменить</Button>
+              <Button onClick={showUserNameChangeModal}>Изменить</Button>
             </div>
 
           </div>
@@ -60,6 +73,8 @@ export default function User() {
           </div>
         </div>
       </div>
+      <ImageForm visible={isImageModalShow} setVisible={setIsImageModalShow} />
+      <UserNameForm visible={isUserNameModalShow} setVisible={setIsUserNameModalShow} />
     </section>
   )
 }
