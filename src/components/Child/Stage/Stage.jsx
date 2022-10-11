@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { selectChildData, selectChildLoading, selectChildError, selectChildStage } from '../../../store/child/selectors';
 import { getChildDataThunk, getChildStageThunk, setChildData } from '../../../store/child/actions';
-import { LoaderSvg } from '../../UI/loader/LoaderSvg';
+//import { LoaderSvg } from '../../UI/loader/LoaderSvg';
 import cl from './Stage.module.scss';
 import { useEffect, useState } from 'react';
 import { convertAgeToDays } from '../../../utils/convertAgeToDays';
@@ -19,8 +19,8 @@ export default function Stage() {
   const location = useLocation();
 
   const child = useSelector(selectChildData);
-  const error = useSelector(selectChildError);
-  const loading = useSelector(selectChildLoading);
+  //const error = useSelector(selectChildError);
+  //const loading = useSelector(selectChildLoading);
   const stage = useSelector(selectChildStage);
 
   const [age, setAge] = useState(null);
