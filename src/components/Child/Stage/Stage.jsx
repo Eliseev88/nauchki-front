@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { Link, useLocation, useParams } from 'react-router-dom';
-import { selectChildData, selectChildLoading, selectChildError, selectChildStage } from '../../../store/child/selectors';
+import { selectChildData, selectChildStage } from '../../../store/child/selectors';
 import { getChildDataThunk, getChildStageThunk, setChildData } from '../../../store/child/actions';
 //import { LoaderSvg } from '../../UI/loader/LoaderSvg';
 import cl from './Stage.module.scss';
