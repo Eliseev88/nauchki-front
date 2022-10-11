@@ -123,7 +123,6 @@
     &-skills {
         grid-column: 2 / 5;
         width: calc(100%-20px);
-        height: calc(100%-20px);
         padding: 10px;
         word-wrap: break-word;
         border: 1px solid #0EAC99;
@@ -154,6 +153,7 @@
     color: $black;
     transition: box-shadow .2s linear;
     justify-content: center;
+    padding: 1rem;
 
     &:hover {
         box-shadow: 0 0 10px #74e4d7;

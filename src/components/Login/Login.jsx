@@ -41,8 +41,8 @@ export default function Login() {
   }
 
   useEffect(() => {
-      auth && navigate(from, { replace: true });
-    }, [auth, from, navigate]);
+    auth && navigate(from, { replace: true });
+  }, [auth, from, navigate]);
 
   const inputEmail = useRef(null);
 
@@ -51,8 +51,8 @@ export default function Login() {
   }, []);
 
   useEffect(() => {
-    errorAuth && dispatch(errorAuthAction(false));
-  }, [location, dispatch, errorAuth])
+    dispatch(errorAuthAction(false));
+  }, [location, dispatch])
 
   return (
     <section className={cl.login}>
@@ -60,9 +60,9 @@ export default function Login() {
         <div className={cl.login__wrapper}>
           <h1 className={cl.login__title}>Вход</h1>
           {
-            errorAuth?.response?.status === 401 &&
+            errorAuth?.response?.status === 400 &&
             <ErrorRequest>
-              Неверный email или пароль
+              Неверные почта или пароль
             </ErrorRequest>
           }
           <form className={cl.login__form} onSubmit={handleLogin}>

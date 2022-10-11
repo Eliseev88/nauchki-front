@@ -7,6 +7,10 @@
         background: $gradient180;
         padding: 5.5rem 9.5rem;
         border-radius: 20px;
+
+        @media ($mobile) {
+            padding: 5.5rem 2.5rem;
+        }
     }
 
     &__intro {

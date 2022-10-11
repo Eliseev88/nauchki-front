@@ -29,7 +29,7 @@ export class Api {
     return Api.request(url, data, "PUT", withToken);
   }
 
-  static delete(url,  withToken) {
+  static delete(url, withToken) {
     return Api.request(url, "DELETE", withToken);
   }
 }
